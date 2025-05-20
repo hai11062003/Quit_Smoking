@@ -68,7 +68,7 @@ function Header() {
                   Login
                 </Link>
                 <Link
-                  to='/signup'
+                  to='/register'
                   className='px-4 py-2 rounded-lg border border-gray-300 hover:bg-gray-700 transition-colors'>
                   Sign Up
                 </Link>
@@ -122,7 +122,7 @@ function Header() {
                     Login
                   </Link>
                   <Link
-                    to='/signup'
+                    to='/register'
                     className='px-4 py-2 rounded-lg border border-gray-300 hover:bg-gray-700 transition-colors inline-block'>
                     Sign Up
                   </Link>
