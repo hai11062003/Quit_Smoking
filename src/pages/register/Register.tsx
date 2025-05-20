@@ -1,14 +1,21 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function Login() {
+function Register() {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Login attempt:", { email, password });
+    console.log("Register attempt:", {
+      name,
+      email,
+      password,
+      confirmPassword,
+    });
   };
 
   return (
@@ -18,7 +25,7 @@ function Login() {
         className='absolute inset-0 bg-cover bg-center opacity-50'
         style={{
           backgroundImage:
-            "url('https://images.pexels.com/photos/247040/pexels-photo-247040.jpeg')", // Cigarette pack image
+            "url('https://images.pexels.com/photos/247040/pexels-photo-247040.jpeg')",
           backgroundPosition: "center",
         }}></div>
 
@@ -27,27 +34,48 @@ function Login() {
         className='absolute inset-0 opacity-35 mix-blend-overlay'
         style={{
           backgroundImage:
-            "url('https://images.pexels.com/photos/1466627/pexels-photo-1466627.jpeg')", // Burning cigarette with smoke
+            "url('https://images.pexels.com/photos/1466627/pexels-photo-1466627.jpeg')",
           backgroundSize: "cover",
           animation: "smoke 15s infinite",
         }}></div>
 
-      {/* Glass effect card - enhanced smoky effect */}
+      {/* Glass effect card */}
       <div
         className='max-w-md w-full m-4 p-8 backdrop-blur-md bg-zinc-900/40 rounded-2xl 
                     shadow-2xl relative z-10 hover:shadow-3xl transition-all duration-300 
                     border border-zinc-800/50'>
         <div>
           <h2 className='mt-6 text-center text-3xl font-bold text-gray-100'>
-            Break Free
+            Join the Journey
           </h2>
           <p className='mt-2 text-center text-sm text-gray-300'>
-            Your journey to quit smoking starts here
+            Start your smoke-free life today
           </p>
         </div>
 
         <form className='mt-8 space-y-6' onSubmit={handleSubmit}>
           <div className='space-y-5'>
+            <div className='transform transition-all duration-300 hover:scale-[1.01]'>
+              <label
+                htmlFor='name'
+                className='block text-sm font-semibold text-gray-300'>
+                Full Name
+              </label>
+              <input
+                id='name'
+                name='name'
+                type='text'
+                required
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className='mt-1 block w-full px-4 py-3 bg-gray-900/50 border border-gray-700 rounded-lg 
+                         text-gray-100 placeholder-gray-500
+                         focus:ring-2 focus:ring-gray-500 focus:border-transparent
+                         transition-all duration-300 backdrop-blur-sm'
+                placeholder='Enter your full name'
+              />
+            </div>
+
             <div className='transform transition-all duration-300 hover:scale-[1.01]'>
               <label
                 htmlFor='email'
@@ -89,29 +117,26 @@ function Login() {
                 placeholder='Enter your password'
               />
             </div>
-          </div>
 
-          <div className='flex items-center justify-between'>
-            <div className='flex items-center'>
-              <input
-                id='remember-me'
-                name='remember-me'
-                type='checkbox'
-                className='h-4 w-4 text-gray-600 focus:ring-gray-500 border-gray-700 rounded bg-gray-900/50'
-              />
+            <div className='transform transition-all duration-300 hover:scale-[1.01]'>
               <label
-                htmlFor='remember-me'
-                className='ml-2 block text-sm text-gray-300'>
-                Remember me
+                htmlFor='confirm-password'
+                className='block text-sm font-semibold text-gray-300'>
+                Confirm Password
               </label>
-            </div>
-
-            <div className='text-sm'>
-              <a
-                href='#'
-                className='font-medium text-gray-300 hover:text-gray-400 transition-colors'>
-                Forgot password?
-              </a>
+              <input
+                id='confirm-password'
+                name='confirm-password'
+                type='password'
+                required
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                className='mt-1 block w-full px-4 py-3 bg-gray-900/50 border border-gray-700 rounded-lg 
+                         text-gray-100 placeholder-gray-500
+                         focus:ring-2 focus:ring-gray-500 focus:border-transparent
+                         transition-all duration-300 backdrop-blur-sm'
+                placeholder='Confirm your password'
+              />
             </div>
           </div>
 
@@ -123,18 +148,18 @@ function Login() {
                        hover:from-gray-800 hover:to-gray-950 focus:outline-none focus:ring-2
                        focus:ring-offset-2 focus:ring-gray-500 transform transition-all duration-300
                        hover:scale-[1.02] hover:shadow-lg shadow-gray-900/50'>
-              Sign in
+              Sign up
             </button>
           </div>
         </form>
 
         <div className='mt-6 text-center'>
           <p className='text-sm text-gray-400'>
-            Don't have an account?{" "}
+            Already have an account?{" "}
             <a
-              onClick={() => navigate("/login")}
+              onClick={() => navigate("/register")}
               className='font-medium text-gray-300 hover:text-gray-400 transition-colors cursor-pointer'>
-              Sign up
+              Sign in
             </a>
           </p>
         </div>
@@ -143,4 +168,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Register;
