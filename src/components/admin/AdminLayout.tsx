@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import React from "react";
+import { Link, Outlet } from "react-router-dom";
 
 const AdminLayout: React.FC = () => {
   return (
@@ -10,16 +10,29 @@ const AdminLayout: React.FC = () => {
         <nav>
           <ul className="space-y-4">
             <li>
-              <Link to="/admin" className="hover:text-gray-300">Dashboard</Link>
+              <Link to="/admin" className="hover:text-gray-300">
+                Dashboard
+              </Link>
             </li>
             <li>
-              <Link to="/admin/users" className="hover:text-gray-300">Users</Link>
+              <Link to="/admin/users" className="hover:text-gray-300">
+                Users
+              </Link>
             </li>
             <li>
-              <Link to="/admin/subscriptions" className="hover:text-gray-300">Subscriptions</Link>
+              <Link to="/admin/subscriptions" className="hover:text-gray-300">
+                Subscriptions
+              </Link>
             </li>
             <li>
-              <Link to="/admin/badges" className="hover:text-gray-300">Badges</Link>
+              <Link to="/admin/badges" className="hover:text-gray-300">
+                Badges
+              </Link>
+            </li>
+            <li>
+              <Link to="/admin/badges" className="hover:text-gray-300">
+                Con Gà
+              </Link>
             </li>
           </ul>
         </nav>
